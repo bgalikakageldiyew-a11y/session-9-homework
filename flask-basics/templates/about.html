@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About – MyFlaskSite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">🌐 MyFlaskSite</div>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}" class="active">About</a>
+            <a href="{{ url_for('hobbies') }}">Hobbies</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>About Me</h1>
+            <p class="subtitle">Get to know the person behind the site.</p>
+        </section>
+
+        <div class="two-col">
+            <section class="card">
+                <h2>👤 Who Am I?</h2>
+                <table class="info-table">
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ person.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Age</th>
+                        <td>{{ person.age }}</td>
+                    </tr>
+                    <tr>
+                        <th>Location</th>
+                        <td>{{ person.location }}</td>
+                    </tr>
+                </table>
+                <p class="bio">{{ person.bio }}</p>
+            </section>
+
+            <section class="card">
+                <h2>🛠️ Skills</h2>
+                <ul class="skills-list">
+                    {% for skill in skills %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 MyFlaskSite. Built with Flask 🐍</p>
+    </footer>
+</body>
+
+</html>

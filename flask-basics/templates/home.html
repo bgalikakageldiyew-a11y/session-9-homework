@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home – MyFlaskSite</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="logo">🌐 MyFlaskSite</div>
+    <nav>
+      <a href="{{ url_for('home') }}" class="active">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('hobbies') }}">Hobbies</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>{{ greeting }}</h1>
+      <p class="subtitle">A simple Flask app built with love and Python.</p>
+    </section>
+
+    <section class="card">
+      <h2>✨ Highlights</h2>
+      <ul class="highlight-list">
+        {% for item in highlights %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 MyFlaskSite. Built with Flask 🐍</p>
+  </footer>
+</body>
+</html>
